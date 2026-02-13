@@ -19032,7 +19032,7 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 				bFound = true;
 			}
 		}
-
+		
 		if (bFound)
 		{
 			if (NO_BUILDING != eDefaultBuilding && eDefaultBuilding != eBuilding && !GC.getBuildingClassInfo(eBuildingClass).isUnique())
@@ -19043,8 +19043,22 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 		}
 		else
 		{
-			szBuffer.append(NEWLINE);
-			szBuffer.append(gDLL->getText("TXT_KEY_RESTRICTED_UNIT"));
+			bFound = false;
+			for (iI = 0; iI < GC.getNumTraitInfos(); ++iI)
+			{
+				if (eBuilding == (BuildingTypes)GC.getTraitInfo((TraitTypes)iI).getExtraBuildingClasses(eBuildingClass))
+				{
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_UNIQUE_BUILDING_TRAIT", GC.getTraitInfo((TraitTypes)iI).getTextKeyWide()));
+					bFound = true;
+
+				}
+			}
+			if (!bFound)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_RESTRICTED_UNIT"));
+			}
 		}
 	}
 /*************************************************************************************************/
@@ -25544,7 +25558,7 @@ bool CvGameTextMgr::buildPromotionString(CvWStringBuffer &szBuffer, TechTypes eT
 {
 	CvWString szTempBuffer;
 
-	if (GC.getPromotionInfo((PromotionTypes) iPromotionType).getTechPrereq() == eTech)
+	if (GC.getPromotionInfo((PromotionTypes) iPromotionType).getTechPrereq() == eTech && !GC.getPromotionInfo((PromotionTypes)iPromotionType).isGraphicalOnly())
 	{
 		if (bList && bFirst)
 		{
@@ -26071,6 +26085,7 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTyp
 	}
 	if (info.getWorkingCityCrime() != 0)
 	{
+		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_CITY_CRIME_PLOT", info.getWorkingCityCrime()));
 	}
 /*************************************************************************************************/

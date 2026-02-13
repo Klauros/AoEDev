@@ -1092,6 +1092,14 @@
 		<Spanish>Unidad exclusiva de [LINK=literal]%s1_civ[\LINK]</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_BUILDING_TRAIT</Tag>
+		<English>Unique Building for [LINK=literal]%s1_civ[\LINK] Leaders</English>
+		<French>Bâtiment unique pour : [LINK=literal]%s1_civ[\LINK]</French>
+		<German>Unique Building for [LINK=literal]%s1_civ[\LINK] Leaders</German>
+		<Italian>Unique Building for [LINK=literal]%s1_civ[\LINK] Leaders</Italian>
+		<Spanish>Unidad exclusiva de [LINK=literal]%s1_civ[\LINK]</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_DENIED_BUILDINGS</Tag>
 		<English>Cannot Build</English>
 		<French>Ne peut pas construire</French>

@@ -1186,6 +1186,12 @@
 			<Civilopedia>TXT_KEY_TRAIT_HEMAPYROSYNCRETISTIC_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_HEMAPYROSYNCRETISTIC_SHORT</ShortDescription>
 			<Help>TXT_KEY_TRAIT_HEMAPYROSYNCRETISTIC_HELP</Help>
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PAGAN_TEMPLE</BuildingClassType>
+					<BuildingType>BUILDING_TEMPLE_OF_BLOODTHIRSTY_FLAME</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 		<TraitInfo>		<!-- HemaPyroSyncretistic 2 -->
 			<Type>TRAIT_HEMAPYROSYNCRETISTIC2</Type>

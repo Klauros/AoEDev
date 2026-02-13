@@ -714,8 +714,8 @@
 			<iCargo>1</iCargo>
 			<iAsset>28</iAsset>
 			<UnitMeshGroups>
-				<iGroupSize>4</iGroupSize>
-				<iMeleeWaveSize>4</iMeleeWaveSize>
+				<iGroupSize>5</iGroupSize>
+				<iMeleeWaveSize>5</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
@@ -727,13 +727,16 @@
 				</UnitMeshGroup>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_RAT</EarlyArtDefineTag>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SPIDER</EarlyArtDefineTag>
 				</UnitMeshGroup>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_RAT</EarlyArtDefineTag>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SCORPION</EarlyArtDefineTag>
 				</UnitMeshGroup>
-				
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_WOLF</EarlyArtDefineTag>
+				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<iTier>4</iTier>
 		</UnitInfo>
