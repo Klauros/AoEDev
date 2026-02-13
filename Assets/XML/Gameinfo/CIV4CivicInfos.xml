@@ -450,6 +450,7 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
+			<iAIWeight>10</iAIWeight>
 		</CivicInfo>
 		<CivicInfo>		<!-- Slavery -->
 			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
@@ -495,6 +496,7 @@
 			<BlockAlignment>ALIGNMENT_GOOD</BlockAlignment>
 			<iAlignmentModifier>-16</iAlignmentModifier>
 			<iWorkerSpeedModifier>50</iWorkerSpeedModifier>
+			<iAIWeight>-20</iAIWeight>
 		</CivicInfo>
 		<CivicInfo>		<!-- Blood And Sacrifice -->
 			<CivicOptionType>CIVICOPTION_LABOR</CivicOptionType>
@@ -795,6 +797,7 @@
 			<bMilitaryFoodProduction>1</bMilitaryFoodProduction>
 			<iAlignmentModifier>-4</iAlignmentModifier>
 			<bNoForeignTrade>1</bNoForeignTrade>
+			<iAIWeight>-20</iAIWeight>
 		</CivicInfo>
 		<CivicInfo>		<!-- Mercantilism -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>
@@ -847,6 +850,7 @@
 				<iCommerce>25</iCommerce>
 			</CommerceModifiers>
 			<iCoastalTradeRoutes>1</iCoastalTradeRoutes>
+			<iAIWeight>15</iAIWeight>
 		</CivicInfo>
 		<CivicInfo>		<!-- Lost Lands -->
 			<CivicOptionType>CIVICOPTION_ECONOMY</CivicOptionType>

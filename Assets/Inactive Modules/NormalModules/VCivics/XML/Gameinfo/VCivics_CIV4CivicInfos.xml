@@ -688,6 +688,7 @@
 			</BuildingHappinessChanges>
 			<iFreeExperience>2</iFreeExperience>
 			<iMilitaryProductionModifier>-25</iMilitaryProductionModifier>
+			<iAIWeight>10</iAIWeight>
 			<bForceOverwrite>1</bForceOverwrite>
 		</CivicInfo>
 		<CivicInfo>		<!-- Slavery -->
@@ -742,6 +743,7 @@
 			<iWorkerSpeedModifier>25</iWorkerSpeedModifier>
 			<BlockAlignment>ALIGNMENT_GOOD</BlockAlignment>
 			<iAlignmentModifier>-16</iAlignmentModifier>
+			<iAIWeight>-20</iAIWeight>
 			<bForceOverwrite>1</bForceOverwrite>
 		</CivicInfo>
 		<CivicInfo>		<!-- Blood And Sacrifice -->
@@ -1126,6 +1128,7 @@
 			<iFreeExperience>5</iFreeExperience>
 			<bMilitaryFoodProduction>1</bMilitaryFoodProduction>
 			<iAlignmentModifier>-4</iAlignmentModifier>
+			<iAIWeight>-20</iAIWeight>
 			<bForceOverwrite>1</bForceOverwrite>
 		</CivicInfo>
 		<CivicInfo>		<!-- Mercantilism -->
@@ -1196,6 +1199,7 @@
 				</BuildingHappinessChange>
 			</BuildingHappinessChanges>
 			<!-- <iCoastalTradeRoutes>1</iCoastalTradeRoutes> -->
+			<iAIWeight>15</iAIWeight>
 			<bForceOverwrite>1</bForceOverwrite>
 		</CivicInfo>
 		<CivicInfo>		<!-- Lost Lands -->
