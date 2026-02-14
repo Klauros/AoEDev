@@ -1388,6 +1388,7 @@ public:
 /**	Second Job							08/28/10									Valkrionn	**/
 /**				Allows units to qualify for the promotions of other UnitCombats					**/
 /*************************************************************************************************/
+	bool isUnitCombat(UnitCombatTypes eIndex) const;
 	bool isSecondaryUnitCombat(UnitCombatTypes eIndex) const;
 	void changeSecondaryUnitCombat(UnitCombatTypes eIndex, int iChange);
 /*************************************************************************************************/

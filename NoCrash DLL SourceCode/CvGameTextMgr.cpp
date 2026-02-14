@@ -4156,18 +4156,19 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer &szString, CvPlot* pPlot)
 				szString.append(NEWLINE);
 				szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitClassInfo(pDefender->getUnitClassType()).getTextKeyWide()));
 			}
-
-			if (pDefender->getUnitCombatType() != NO_UNITCOMBAT)
+			for (int i = 0; i < GC.getNumUnitCombatInfos(); i++)
 			{
-				iModifier = pAttacker->unitCombatModifier(pDefender->getUnitCombatType());
-
-				if (iModifier != 0)
+				if (pDefender->isUnitCombat((UnitCombatTypes)i))
 				{
-					szString.append(NEWLINE);
-					szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitCombatInfo(pDefender->getUnitCombatType()).getTextKeyWide()));
+					iModifier = pAttacker->unitCombatModifier((UnitCombatTypes)i);
+
+					if (iModifier != 0)
+					{
+						szString.append(NEWLINE);
+						szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitCombatInfo((UnitCombatTypes)i).getTextKeyWide()));
+					}
 				}
 			}
-
 			iModifier = pAttacker->domainModifier(pDefender->getDomainType());
 
 			if (iModifier != 0)
@@ -4403,18 +4404,19 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer &szString, CvPlot* pPlot)
 				szString.append(NEWLINE);
 				szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitClassInfo(pAttacker->getUnitClassType()).getTextKeyWide()));
 			}
-
-			if (pAttacker->getUnitCombatType() != NO_UNITCOMBAT)
+			for (int i = 0; i < GC.getNumUnitCombatInfos(); i++)
 			{
-				iModifier = pDefender->unitCombatModifier(pAttacker->getUnitCombatType());
-
-				if (iModifier != 0)
+				if (pAttacker->isUnitCombat((UnitCombatTypes)i))
 				{
-					szString.append(NEWLINE);
-					szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitCombatInfo(pAttacker->getUnitCombatType()).getTextKeyWide()));
+					iModifier = pDefender->unitCombatModifier((UnitCombatTypes)i);
+
+					if (iModifier != 0)
+					{
+						szString.append(NEWLINE);
+						szString.append(gDLL->getText("TXT_KEY_COMBAT_PLOT_MOD_VS_TYPE", iModifier, GC.getUnitCombatInfo((UnitCombatTypes)i).getTextKeyWide()));
+					}
 				}
 			}
-
 			iModifier = pDefender->domainModifier(pAttacker->getDomainType());
 
 			if (iModifier != 0)

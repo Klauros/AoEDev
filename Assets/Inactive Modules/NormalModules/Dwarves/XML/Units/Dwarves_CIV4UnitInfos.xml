@@ -320,6 +320,7 @@
 			<DenyPromotions>
 					<PromotionType>PROMOTION_GUARDSMAN</PromotionType>
 			</DenyPromotions>
+			<bNeverObsolete>1</bNeverObsolete>
 			<iCommandLimit>2</iCommandLimit>
 		</UnitInfo>		
 		<UnitInfo>		<!-- Engineer -->

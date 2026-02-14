@@ -40907,6 +40907,7 @@
 			<bFreeXP>1</bFreeXP>
 			<iFreePromotionPick>1</iFreePromotionPick>
 			<iTier>2</iTier>
+			<bNeverObsolete>1</bNeverObsolete>
 			<PrereqBuildingClass>BUILDINGCLASS_MAGE_GUILD</PrereqBuildingClass>
 		</UnitInfo>
 		<UnitInfo>        <!-- Shaman -->
@@ -49613,6 +49614,9 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
 			<iCombat>2</iCombat>
+			<iAirRange>1</iAirRange>
+			<iAirCombat>3</iAirCombat>
+			<iAirCombatLimit>40</iAirCombatLimit>
 			<iFirstStrikes>1</iFirstStrikes>
 			<iCityDefense>25</iCityDefense>
 			<iHillsDefense>25</iHillsDefense>

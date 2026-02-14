@@ -344,17 +344,23 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 		}
 	}
 	FAssertMsg((GC.getNumTraitInfos() > 0), "GC.getNumTraitInfos() is less than or equal to zero but is expected to be larger than zero in CvUnit::init");
-	for (iI = 0; iI < GC.getNumTraitInfos(); iI++)
+	if (getUnitCombatType() != NO_UNITCOMBAT)
 	{
-		if (GET_PLAYER(getOwnerINLINE()).hasTrait((TraitTypes)iI))
+		for (iI = 0; iI < GC.getNumTraitInfos(); iI++)
 		{
-			for (iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++)
+			if (GET_PLAYER(getOwnerINLINE()).hasTrait((TraitTypes)iI))
 			{
-				if (GC.getTraitInfo((TraitTypes)iI).isFreePromotion(iJ))
+				for (iJ = 0; iJ < GC.getNumPromotionInfos(); iJ++)
 				{
-					if ((getUnitCombatType() != NO_UNITCOMBAT) && GC.getTraitInfo((TraitTypes)iI).isFreePromotionUnitCombat(getUnitCombatType()))
+					if (GC.getTraitInfo((TraitTypes)iI).isFreePromotion(iJ))
 					{
-						setHasPromotion(((PromotionTypes)iJ), true);
+						for (int ik = 0; ik < GC.getNumUnitCombatInfos(); ik++)
+						{
+							if ((isUnitCombat((UnitCombatTypes)ik) && GC.getTraitInfo((TraitTypes)iI).isFreePromotionUnitCombat(ik)))
+							{
+								setHasPromotion(((PromotionTypes)iJ), true);
+							}
+						}
 					}
 				}
 			}
@@ -2395,17 +2401,13 @@ void CvUnit::doTurn()
 				{
 					if (GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion() != NO_PROMOTION)
 					{
-						if ((getUnitCombatType() != NO_UNITCOMBAT) && GC.getPromotionInfo((PromotionTypes)GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion()).getUnitCombat(getUnitCombatType()))
-						{
-							setHasPromotion((PromotionTypes)GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion(), true);
-						}
 /*************************************************************************************************/
 /**	Second Job							08/28/10									Valkrionn	**/
 /**				Allows units to qualify for the promotions of other UnitCombats					**/
 /*************************************************************************************************/
 						for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 						{
-							if ((getUnitCombatType() != NO_UNITCOMBAT) && isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo((PromotionTypes)GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion()).getUnitCombat(iK))
+							if ((getUnitCombatType() != NO_UNITCOMBAT) && isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo((PromotionTypes)GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion()).getUnitCombat(iK))
 							{
 								setHasPromotion((PromotionTypes)GC.getBuildingInfo((BuildingTypes)iI).getFreePromotion(), true);
 							}
@@ -13193,20 +13195,33 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 
 			if (pAttacker->getUnitCombatType() != NO_UNITCOMBAT)
 			{
-				iExtraModifier = unitCombatModifier(pAttacker->getUnitCombatType());
-				iTempModifier += iExtraModifier;
-				if (pCombatDetails != NULL)
+				for (int ii = 0; ii < GC.getNumUnitCombatInfos(); ii++)
 				{
-					pCombatDetails->iCombatModifierA = iExtraModifier;
+					if (pAttacker->isUnitCombat((UnitCombatTypes)ii))
+					{
+						iExtraModifier = unitCombatModifier((UnitCombatTypes)ii);
+						iTempModifier += iExtraModifier;
+						if (pCombatDetails != NULL)
+						{
+							pCombatDetails->iCombatModifierA = iExtraModifier;
+						}
+					}
 				}
 			}
 			if (getUnitCombatType() != NO_UNITCOMBAT)
 			{
-				iExtraModifier = -pAttacker->unitCombatModifier(getUnitCombatType());
-				iTempModifier += iExtraModifier;
-				if (pCombatDetails != NULL)
+				for (int ii = 0; ii < GC.getNumUnitCombatInfos(); ii++)
 				{
-					pCombatDetails->iCombatModifierT = iExtraModifier;
+					if (isUnitCombat((UnitCombatTypes)ii))
+					{
+
+						iExtraModifier = -pAttacker->unitCombatModifier((UnitCombatTypes)ii);
+						iTempModifier += iExtraModifier;
+						if (pCombatDetails != NULL)
+						{
+							pCombatDetails->iCombatModifierT = iExtraModifier;
+						}
+					}
 				}
 			}
 
@@ -13615,11 +13630,13 @@ int CvUnit::airMaxCombatStr(const CvUnit* pOther) const
 
 	if (NULL != pOther)
 	{
-		if (pOther->getUnitCombatType() != NO_UNITCOMBAT)
+		for (int ii = 0; ii < GC.getNumUnitCombatInfos(); ii++)
 		{
-			iModifier += unitCombatModifier(pOther->getUnitCombatType());
+			if (pOther->isUnitCombat((UnitCombatTypes)ii))
+			{
+				iModifier += unitCombatModifier((UnitCombatTypes)ii);
+			}
 		}
-
 		iModifier += domainModifier(pOther->getDomainType());
 
 		if (pOther->isAnimal())
@@ -17297,10 +17314,9 @@ float CvUnit::getCasterXPRate() const
 	CvCity* pCity = pPlot->getPlotCity();
 	if (pPlot->isCity())
 	{
-		fXPRate += pCity->getTrainXPRate(getUnitCombatType());
 		for (int i = 0; i < GC.getNumUnitCombatInfos(); i++)
 		{
-			if (isSecondaryUnitCombat((UnitCombatTypes)i))
+			if (isUnitCombat((UnitCombatTypes)i))
 			{
 				fXPRate += pCity->getTrainXPRate((UnitCombatTypes)i);
 			}
@@ -18425,6 +18441,10 @@ void CvUnit::changeAllowPromotion(PromotionTypes eIndex, int iChange)
 /**	Second Job							08/28/10									Valkrionn	**/
 /**				Allows units to qualify for the promotions of other UnitCombats					**/
 /*************************************************************************************************/
+bool CvUnit::isUnitCombat(UnitCombatTypes eIndex) const
+{
+	return (getUnitCombatType()==eIndex || m_piSecondaryUnitCombat[eIndex] > 0);
+}
 bool CvUnit::isSecondaryUnitCombat(UnitCombatTypes eIndex) const
 {
 	return (m_piSecondaryUnitCombat[eIndex] > 0);
@@ -24456,60 +24476,13 @@ bool CvUnit::canAddPromotion(int spell, CvPlot* pTargetPlot)
 							{
 								if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT)
 								{
-									if (GC.getPromotionInfo(ePromotion1).getUnitCombat(pLoopUnit->getUnitCombatType()))
-									{
-										/*************************************************************************************************/
-										/**	Xienwolf Tweak							03/18/09											**/
-										/**																								**/
-										/**				Accounts for Blocked Promotions on a unit to prevent useless casting			**/
-										/*************************************************************************************************/
-										/**								---- Start Original Code ----									**
-																			if (!pLoopUnit->isHasPromotion(ePromotion1))
-																			{
-																				return true;
-																			}
-																		}
-																	}
-																}
-																if (ePromotion2 != NO_PROMOTION)
-																{
-																	if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT)
-																	{
-																		if (GC.getPromotionInfo(ePromotion2).getUnitCombat(pLoopUnit->getUnitCombatType()))
-																		{
-																			if (!pLoopUnit->isHasPromotion(ePromotion2))
-																			{
-																				return true;
-																			}
-																		}
-																	}
-																}
-																if (ePromotion3 != NO_PROMOTION)
-																{
-																	if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT)
-																	{
-																		if (GC.getPromotionInfo(ePromotion3).getUnitCombat(pLoopUnit->getUnitCombatType()))
-																		{
-																			if (!pLoopUnit->isHasPromotion(ePromotion3))
-																			{
-																				return true;
-																			}
-										/**								----  End Original Code  ----									**/
-										if (!pLoopUnit->isHasPromotion(ePromotion1) || GC.getPromotionInfo(ePromotion1).isStackEffect())
-										{
-											if (!pLoopUnit->isDenyPromotion(ePromotion1))
-											{
-												return true;
-											}
-										}
-									}
 									/*************************************************************************************************/
 									/**	Second Job							08/28/10									Valkrionn	**/
 									/**				Allows units to qualify for the promotions of other UnitCombats					**/
 									/*************************************************************************************************/
 									for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 									{
-										if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
+										if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
 										{
 											if (!pLoopUnit->isHasPromotion(ePromotion1) || GC.getPromotionInfo(ePromotion1).isStackEffect())
 											{
@@ -25688,34 +25661,13 @@ void CvUnit::castAddPromotion(int spell, CvPlot* pTargetPlot)
 											{
 												if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT)
 												{
-													if (GC.getPromotionInfo(ePromotion1).getUnitCombat(pLoopUnit->getUnitCombatType()) || isAllowPromotion(ePromotion1))
-													{
-														pLoopUnit->setHasPromotion(ePromotion1, true);
-														/*************************************************************************************************/
-														/**	TickTock							11/04/08									Xienwolf	**/
-														/**																								**/
-														/**					Allows SpellInfos to override default duration of a Promotion				**/
-														/*************************************************************************************************/
-														if (iDuration != -1)
-														{
-															pLoopUnit->setPromotionDuration(ePromotion1, iDuration);
-														}
-														if (GC.getPromotionInfo(ePromotion1).getDuration() > 0 && spellData.bPermanent)
-														{
-															pLoopUnit->setPromotionDuration(ePromotion1, -1);
-															pLoopUnit->setPermanentSpellPromotion(ePromotion1, true);
-														}
-														/*************************************************************************************************/
-														/**	TickTock									END												**/
-														/*************************************************************************************************/
-													}
 													/*************************************************************************************************/
 													/**	Second Job							08/28/10									Valkrionn	**/
 													/**				Allows units to qualify for the promotions of other UnitCombats					**/
 													/*************************************************************************************************/
 													for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 													{
-														if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
+														if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
 														{
 															pLoopUnit->setHasPromotion(ePromotion1, true);
 															if (iDuration != -1)
@@ -25744,34 +25696,13 @@ void CvUnit::castAddPromotion(int spell, CvPlot* pTargetPlot)
 										{
 											if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT)
 											{
-												if (GC.getPromotionInfo(ePromotion1).getUnitCombat(pLoopUnit->getUnitCombatType()))
-												{
-													pLoopUnit->setHasPromotion(ePromotion1, true);
-													/*************************************************************************************************/
-													/**	TickTock							11/04/08									Xienwolf	**/
-													/**																								**/
-													/**					Allows SpellInfos to override default duration of a Promotion				**/
-													/*************************************************************************************************/
-													if (iDuration != -1)
-													{
-														pLoopUnit->setPromotionDuration(ePromotion1, iDuration);
-													}
-													if (GC.getPromotionInfo(ePromotion1).getDuration() > 0 && spellData.bPermanent)
-													{
-														pLoopUnit->setPromotionDuration(ePromotion1, -1);
-														pLoopUnit->setPermanentSpellPromotion(ePromotion1, true);
-													}
-													/*************************************************************************************************/
-													/**	TickTock									END												**/
-													/*************************************************************************************************/
-												}
 												/*************************************************************************************************/
 												/**	Second Job							08/28/10									Valkrionn	**/
 												/**				Allows units to qualify for the promotions of other UnitCombats					**/
 												/*************************************************************************************************/
 												for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 												{
-													if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
+													if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
 													{
 														pLoopUnit->setHasPromotion(ePromotion1, true);
 														if (iDuration != -1)
@@ -25872,35 +25803,13 @@ void CvUnit::castAddPromotion(int spell, CvPlot* pTargetPlot)
 									{
 										if (pBestUnit->getUnitCombatType() != NO_UNITCOMBAT)
 										{
-											if (GC.getPromotionInfo(ePromotion1).getUnitCombat(pBestUnit->getUnitCombatType()))
-											{
-												pBestUnit->setHasPromotion(ePromotion1, true);
-												bUnitHit[iBestUnitCounter] = true;
-												/*************************************************************************************************/
-												/**	TickTock							11/04/08									Xienwolf	**/
-												/**																								**/
-												/**					Allows SpellInfos to override default duration of a Promotion				**/
-												/*************************************************************************************************/
-												if (iDuration != -1)
-												{
-													pBestUnit->setPromotionDuration(ePromotion1, iDuration);
-												}
-												if (GC.getPromotionInfo(ePromotion1).getDuration() > 0 && spellData.bPermanent)
-												{
-													pLoopUnit->setPromotionDuration(ePromotion1, -1);
-													pLoopUnit->setPermanentSpellPromotion(ePromotion1, true);
-												}
-												/*************************************************************************************************/
-												/**	TickTock									END												**/
-												/*************************************************************************************************/
-											}
 											/*************************************************************************************************/
 											/**	Second Job							08/28/10									Valkrionn	**/
 											/**				Allows units to qualify for the promotions of other UnitCombats					**/
 											/*************************************************************************************************/
 											for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 											{
-												if (pBestUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
+												if (pBestUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
 												{
 													pBestUnit->setHasPromotion(ePromotion1, true);
 													bUnitHit[iBestUnitCounter] = true;

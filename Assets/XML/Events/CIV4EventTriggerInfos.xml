@@ -3876,6 +3876,7 @@
 			</Events>
 			<bRecurring>1</bRecurring>
 			<bShowPlot>1</bShowPlot>
+			<PythonCanDo>canTriggerPlotEmpty</PythonCanDo>
 			<PythonCallback>doMushrooms</PythonCallback>
 		</EventTriggerInfo>
 		<EventTriggerInfo>

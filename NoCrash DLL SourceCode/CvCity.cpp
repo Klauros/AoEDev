@@ -20214,19 +20214,9 @@ int CvCity::chooseSpell()
 									{
 										if (ePromotion1 != NO_PROMOTION)
 										{
-											if (GC.getPromotionInfo(ePromotion1).getUnitCombat(pLoopUnit->getUnitCombatType()))
-											{
-												if (!pLoopUnit->isHasPromotion(ePromotion1) || GC.getPromotionInfo(ePromotion1).isStackEffect())
-												{
-													if (!pLoopUnit->isDenyPromotion(ePromotion1))
-													{
-														iValue += pLoopUnit->AI_promotionValue(ePromotion1);
-													}
-												}
-											}
 											for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 											{
-												if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
+												if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion1).getUnitCombat(iK))
 												{
 													if (!pLoopUnit->isHasPromotion(ePromotion1) || GC.getPromotionInfo(ePromotion1).isStackEffect())
 													{
@@ -20240,19 +20230,9 @@ int CvCity::chooseSpell()
 										}
 										if (ePromotion2 != NO_PROMOTION)
 										{
-											if (GC.getPromotionInfo(ePromotion2).getUnitCombat(pLoopUnit->getUnitCombatType()))
-											{
-												if (!pLoopUnit->isHasPromotion(ePromotion2) || GC.getPromotionInfo(ePromotion2).isStackEffect())
-												{
-													if (!pLoopUnit->isDenyPromotion(ePromotion2))
-													{
-														iValue += pLoopUnit->AI_promotionValue(ePromotion2);
-													}
-												}
-											}
 											for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 											{
-												if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion2).getUnitCombat(iK))
+												if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion2).getUnitCombat(iK))
 												{
 													if (!pLoopUnit->isHasPromotion(ePromotion2) || GC.getPromotionInfo(ePromotion1).isStackEffect())
 													{
@@ -20266,19 +20246,9 @@ int CvCity::chooseSpell()
 										}
 										if (ePromotion3 != NO_PROMOTION)
 										{
-											if (GC.getPromotionInfo(ePromotion3).getUnitCombat(pLoopUnit->getUnitCombatType()))
-											{
-												if (!pLoopUnit->isHasPromotion(ePromotion3) || GC.getPromotionInfo(ePromotion3).isStackEffect())
-												{
-													if (!pLoopUnit->isDenyPromotion(ePromotion3))
-													{
-														iValue += pLoopUnit->AI_promotionValue(ePromotion3);
-													}
-												}
-											}
 											for (int iK = 0; iK < GC.getNumUnitCombatInfos(); iK++)
 											{
-												if (pLoopUnit->isSecondaryUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion3).getUnitCombat(iK))
+												if (pLoopUnit->isUnitCombat((UnitCombatTypes)iK) && GC.getPromotionInfo(ePromotion3).getUnitCombat(iK))
 												{
 													if (!pLoopUnit->isHasPromotion(ePromotion3) || GC.getPromotionInfo(ePromotion3).isStackEffect())
 													{
@@ -22199,7 +22169,7 @@ int CvCity::getCityUnits(int eUnitClass) const
 			return GC.getCityClassInfo(getCityClass()).getCityClassUnits(eUnitClass);
 		}
 	}
-	if (GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass) != NO_UNIT)
+	if (GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass) != NO_UNIT && !(GC.getUnitClassInfo((UnitClassTypes)eUnitClass).getMaxGlobalInstances()>0))
 	{
 		return GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass);
 	}
