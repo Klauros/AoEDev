@@ -266,7 +266,6 @@
 			<Description>TXT_KEY_TRAIT_PACT_MERESIN</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_MERESIN_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_MERESIN_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_MERESIN_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -294,13 +293,18 @@
 					<UnitType>UNIT_SWARM_OF_LOCUSTS</UnitType>
 				</ExtraUnitClass>
 			</ExtraUnitClasses>	
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_TEMPLE_ORPHAN</BuildingClassType>
+					<BuildingType>BUILDING_TEMPLE_ORPHAN</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 			<TraitInfo>		<!-- Pact with Ouzza -->
 			<Type>TRAIT_PACT_OUZZA</Type>
 			<Description>TXT_KEY_TRAIT_PACT_OUZZA</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_OUZZA_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_OUZZA_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_OUZZA_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -328,13 +332,18 @@
 					<UnitType>UNIT_FLESH_GOLEM</UnitType>
 				</ExtraUnitClass>
 			</ExtraUnitClasses>	
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_ALTAR_FLESHCALLER</BuildingClassType>
+					<BuildingType>BUILDING_ALTAR_FLESHCALLER</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 			<TraitInfo>		<!-- Pact with Lethe -->
 			<Type>TRAIT_PACT_LETHE</Type>
 			<Description>TXT_KEY_TRAIT_PACT_LETHE</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_LETHE_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_LETHE_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_LETHE_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -367,14 +376,19 @@
 					<UnitClassType>UNITCLASS_KNIGHT</UnitClassType>
 					<iPlayerInstancesChange>4</iPlayerInstancesChange>
 				</UnitClassPlayerInstancesChange>
-			</UnitClassPlayerInstancesChanges>	
+			</UnitClassPlayerInstancesChanges>
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_TEMPLE_REST</BuildingClassType>
+					<BuildingType>BUILDING_TEMPLE_REST</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>	
 		</TraitInfo>
 			<TraitInfo>		<!-- Pact with Judecca -->
 			<Type>TRAIT_PACT_JUDECCA</Type>
 			<Description>TXT_KEY_TRAIT_PACT_JUDECCA</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_JUDECCA_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_JUDECCA_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_JUDECCA_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -402,13 +416,18 @@
 					<UnitType>UNIT_HAEGTESSE</UnitType>
 				</ExtraUnitClass>
 			</ExtraUnitClasses>	
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_COVEN_OF_RUST</BuildingClassType>
+					<BuildingType>BUILDING_COVEN_OF_RUST</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 			<TraitInfo>		<!-- Pact with Statius -->
 			<Type>TRAIT_PACT_STATIUS</Type>
 			<Description>TXT_KEY_TRAIT_PACT_STATIUS</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_STATIUS_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_STATIUS_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_STATIUS_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -436,13 +455,18 @@
 					<UnitType>UNIT_FALLEN_ANGEL</UnitType>
 				</ExtraUnitClass>
 			</ExtraUnitClasses>	
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_EMPTY_HEART</BuildingClassType>
+					<BuildingType>BUILDING_EMPTY_HEART</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 			<TraitInfo>		<!-- Pact with Sallos -->
 			<Type>TRAIT_PACT_SALLOS</Type>
 			<Description>TXT_KEY_TRAIT_PACT_SALLOS</Description>
 			<Civilopedia>TXT_KEY_TRAIT_PACT_SALLOS_PEDIA</Civilopedia>
 			<ShortDescription>TXT_KEY_TRAIT_PACT_SALLOS_SHORT</ShortDescription>
-			<Help>TXT_KEY_TRAIT_PACT_SALLOS_HELP</Help>
 			<TraitClass>TRAITCLASS_DEMON_PACT</TraitClass>
 			<FreePromotions>
 				<FreePromotion>
@@ -470,6 +494,12 @@
 					<UnitType>UNIT_SUCCUBUS</UnitType>
 				</ExtraUnitClass>
 			</ExtraUnitClasses>	
+			<ExtraBuildingClasses>
+				<ExtraBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_DEN_OF_PLEASURE</BuildingClassType>
+					<BuildingType>BUILDING_DEN_OF_PLEASURE</BuildingType>
+				</ExtraBuildingClass>
+			</ExtraBuildingClasses>
 		</TraitInfo>
 		
 	</TraitInfos>
