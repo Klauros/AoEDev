@@ -25544,7 +25544,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_PACIFISM</FavoriteCivic><!-- Removed Charismatic from Iram-->
+			<FavoriteCivic>CIVIC_SLAVERY</FavoriteCivic><!-- Removed Charismatic from Iram-->
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
@@ -26129,7 +26129,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_SCHOLARSHIP</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SLAVERY</FavoriteCivic>
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_ARCANE</TraitType>
@@ -31506,7 +31506,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_GOD_KING</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SLAVERY</FavoriteCivic>
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_SUMMONER</TraitType>
@@ -46338,7 +46338,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_GOD_KING</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SLAVERY</FavoriteCivic>
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_TREACHEROUS</TraitType>
@@ -53432,7 +53432,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>20</iVassalPowerModifier>
 			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_ARISTOCRACY</FavoriteCivic>
+			<FavoriteCivic>CIVIC_SLAVERY</FavoriteCivic>
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_ZARIA_INFO</TraitType>

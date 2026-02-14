@@ -401,54 +401,6 @@
 		<Spanish>Statius el Redentor</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_SALLOS_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET] Can build [LINK=BUILDING_DEN_OF_PLEASURE]Dens of Pleasure and Blood[\LINK]</English>
-		<French>[NEWLINE][ICON_BULLET] Can build [LINK=BUILDING_DEN_OF_PLEASURE]Dens of Pleasure and Blood[\LINK]</French>
-		<German>[NEWLINE][ICON_BULLET] Can build [LINK=BUILDING_DEN_OF_PLEASURE]Dens of Pleasure and Blood[\LINK]</German>
-		<Italian>[NEWLINE][ICON_BULLET] Can build [LINK=BUILDING_DEN_OF_PLEASURE]Dens of Pleasure and Blood[\LINK]</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET] Can build [LINK=BUILDING_DEN_OF_PLEASURE]Dens of Pleasure and Blood[\LINK]</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_STATIUS_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_EMPTY_HEART]Temple of the Empty Heart[\LINK] building</English>
-		<French>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_EMPTY_HEART]Temple of the Empty Heart[\LINK] building</French>
-		<German>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_EMPTY_HEART]Temple of the Empty Heart[\LINK] building</German>
-		<Italian>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_EMPTY_HEART]Temple of the Empty Heart[\LINK] building</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_EMPTY_HEART]Temple of the Empty Heart[\LINK] building</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_MERESIN_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_ORPHAN]Temple of the Sallow Orphan[\LINK] building</English>
-		<French>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_ORPHAN]Temple of the Sallow Orphan[\LINK] building</French>
-		<German>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_ORPHAN]Temple of the Sallow Orphan[\LINK] building</German>
-		<Italian>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_ORPHAN]Temple of the Sallow Orphan[\LINK] building</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_ORPHAN]Temple of the Sallow Orphan[\LINK] building</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_JUDECCA_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_COVEN_OF_RUST]Coven of Rust[\LINK] building</English>
-		<French>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_COVEN_OF_RUST]Coven of Rust[\LINK] building</French>
-		<German>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_COVEN_OF_RUST]Coven of Rust[\LINK] building</German>
-		<Italian>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_COVEN_OF_RUST]Coven of Rust[\LINK] building</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_COVEN_OF_RUST]Coven of Rust[\LINK] building</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_OUZZA_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_ALTAR_FLESHCALLER]Altar of the Fleshcaller[\LINK] building</English>
-		<French>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_ALTAR_FLESHCALLER]Altar of the Fleshcaller[\LINK] building</French>
-		<German>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_ALTAR_FLESHCALLER]Altar of the Fleshcaller[\LINK] building</German>
-		<Italian>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_ALTAR_FLESHCALLER]Altar of the Fleshcaller[\LINK] building</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_ALTAR_FLESHCALLER]Altar of the Fleshcaller[\LINK] building</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PACT_LETHE_HELP</Tag>
-		<English>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_REST]Temple of the Endless Rest[\LINK] building</English>
-		<French>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_REST]Temple of the Endless Rest[\LINK] building</French>
-		<German>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_REST]Temple of the Endless Rest[\LINK] building</German>
-		<Italian>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_REST]Temple of the Endless Rest[\LINK] building</Italian>
-		<Spanish>[NEWLINE][ICON_BULLET]Grants access to the [LINK=BUILDING_TEMPLE_REST]Temple of the Endless Rest[\LINK] building</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_BUILDING_EMPTY_HEART</Tag>
 		<English>Temple of the Empty Heart</English>
 		<French>Temple of the Empty Heart</French>
